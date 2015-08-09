@@ -1,4 +1,4 @@
-package br.com.nobody.statistikz.activities;
+package br.com.nobody.statistikz.activity;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
