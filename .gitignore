@@ -6,3 +6,6 @@
 /build
 /captures
 .idea
+build
+/gradle
+*.iml
