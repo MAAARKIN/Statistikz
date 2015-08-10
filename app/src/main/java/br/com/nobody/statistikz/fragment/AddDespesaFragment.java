@@ -3,22 +3,18 @@ package br.com.nobody.statistikz.fragment;
 import android.app.Activity;
 import android.net.Uri;
 import android.os.Bundle;
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import br.com.nobody.statistikz.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link AddDespesaFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link AddDespesaFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class AddDespesaFragment extends Fragment {
+    public static final String TAG_ADD_DESPESA = "tagAddDespesa";
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -39,7 +35,7 @@ public class AddDespesaFragment extends Fragment {
      * @return A new instance of fragment AddDespesa.
      */
     // TODO: Rename and change types and number of parameters
-    public static AddDespesaFragment newInstance(String param1, String param2) {
+    public static AddDespesaFragment newInstance() {
         AddDespesaFragment fragment = new AddDespesaFragment();
         //i won't pass parameters now.
 //        Bundle args = new Bundle();
@@ -47,6 +43,11 @@ public class AddDespesaFragment extends Fragment {
 //        args.putString(ARG_PARAM2, param2);
 //        fragment.setArguments(args);
         return fragment;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
     }
 
     public AddDespesaFragment() {
@@ -57,14 +58,15 @@ public class AddDespesaFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+//            mParam1 = getArguments().getString(ARG_PARAM1);
+//            mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        getActivity().setTitle(R.string.novaDespesa);
         return inflater.inflate(R.layout.fragment_add_despesa, container, false);
     }
 
@@ -78,12 +80,12 @@ public class AddDespesaFragment extends Fragment {
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-        try {
-            mListener = (OnFragmentInteractionListener) activity;
-        } catch (ClassCastException e) {
-            throw new ClassCastException(activity.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
+//        try {
+//            mListener = (OnFragmentInteractionListener) activity;
+//        } catch (ClassCastException e) {
+//            throw new ClassCastException(activity.toString()
+//                    + " must implement OnFragmentInteractionListener");
+//        }
     }
 
     @Override

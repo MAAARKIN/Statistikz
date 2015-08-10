@@ -7,4 +7,7 @@
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="txtValor">Valor</string>
+    <string name="txtDescricao">Descrição</string>
+    <string name="novaDespesa">Nova Despesa</string>
+    <string name="txtSalvar">Salvar</string>
 </resources>

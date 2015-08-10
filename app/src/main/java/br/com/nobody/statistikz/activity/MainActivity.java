@@ -1,11 +1,14 @@
 package br.com.nobody.statistikz.activity;
 
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import br.com.nobody.statistikz.R;
+import br.com.nobody.statistikz.fragment.AddDespesaFragment;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -14,6 +17,14 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        AddDespesaFragment frag = AddDespesaFragment.newInstance();
+
+        FragmentManager fm = getSupportFragmentManager();
+
+        FragmentTransaction ft = fm.beginTransaction();
+
+        ft.replace(R.id.fragmentContent, frag, AddDespesaFragment.TAG_ADD_DESPESA);
+        ft.commit();
     }
 
     @Override

@@ -3,4 +3,8 @@
     <!-- From: file:/Users/Marquinhos/Workspace/AndroidWorkspace/Statistikz/app/src/main/res/values-w820dp/dimens.xml -->
     <eat-comment/>
     <dimen name="activity_horizontal_margin">64dp</dimen>
+    <!-- From: file:/Users/Marquinhos/Workspace/AndroidWorkspace/Statistikz/app/src/main/res/values-w820dp/strings.xml -->
+    <eat-comment/>
+    <string name="txtSalvar">Salvar</string>
+    <string name="txtValor">Valor</string>
 </resources>
