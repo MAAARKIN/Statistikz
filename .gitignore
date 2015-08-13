@@ -4,8 +4,10 @@
 /.idea/libraries
 .DS_Store
 /build
+/app/build
 /captures
 .idea
 build
 /gradle
 *.iml
+/app/src/main/res/values/parse.xml

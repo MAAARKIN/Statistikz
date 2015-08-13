@@ -11,7 +11,6 @@ import java.math.BigDecimal;
 @ParseClassName("Despesa")
 public class Despesa extends ParseObject {
 
-    private String descricao;
     private BigDecimal valor;
 
     public Despesa() {
@@ -19,18 +18,18 @@ public class Despesa extends ParseObject {
     }
 
     public String getDescricao() {
-        return descricao;
+        return getString("descricao");
     }
 
     public void setDescricao(String descricao) {
-        this.descricao = descricao;
+        this.put("descricao", descricao);
     }
 
     public BigDecimal getValor() {
-        return valor;
+        return new BigDecimal(getDouble("valor"));
     }
 
     public void setValor(BigDecimal valor) {
-        this.valor = valor;
+        this.put("valor", valor.doubleValue());
     }
 }

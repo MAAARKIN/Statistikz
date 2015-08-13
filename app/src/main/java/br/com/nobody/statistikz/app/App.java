@@ -6,6 +6,9 @@ import android.util.Log;
 import com.parse.Parse;
 import com.parse.ParseObject;
 
+import br.com.nobody.statistikz.R;
+import br.com.nobody.statistikz.model.Despesa;
+
 /**
  * Created by Marquinhos.
  */
@@ -17,11 +20,15 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
 
-        Parse.enableLocalDatastore(this);
-        Parse.initialize(this, "YOUR_APP_ID", "YOUR_CLIENT_KEY");
+        ParseObject.registerSubclass(Despesa.class);
 
-        ParseObject testObject = new ParseObject("TestObject");
-        testObject.put("foo", "bar");
-        testObject.saveInBackground();
+        Parse.enableLocalDatastore(this);
+        Parse.initialize(this, getString(R.string.applicationId), getString(R.string.clientKey));
+        Log.i(LOG_STATISTIKZ, "Teste de log Statistikz");
+        Log.i(LOG_STATISTIKZ, getString(R.string.applicationId));
+        Log.i(LOG_STATISTIKZ, getString(R.string.clientKey));
+//        ParseObject testObject = new ParseObject("TestObject");
+//        testObject.put("foo", "bar");
+//        testObject.saveInBackground();
     }
 }

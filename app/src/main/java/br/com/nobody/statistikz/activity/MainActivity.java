@@ -1,13 +1,15 @@
 package br.com.nobody.statistikz.activity;
 
+import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import br.com.nobody.statistikz.R;
+import br.com.nobody.statistikz.app.App;
 import br.com.nobody.statistikz.fragment.AddDespesaFragment;
 
 
@@ -16,6 +18,16 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+//        Despesa despesa = new Despesa();
+//        despesa.setDescricao("testeMarcos");
+//        despesa.setValor(new BigDecimal("70.57"));
+//        despesa.saveEventually();
+
+
+
+        Log.i(App.LOG_STATISTIKZ, "enviou para o parse.com!");
+
         setContentView(R.layout.activity_main);
         AddDespesaFragment frag = AddDespesaFragment.newInstance();
 
