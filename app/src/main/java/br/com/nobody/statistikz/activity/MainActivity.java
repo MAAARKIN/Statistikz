@@ -10,7 +10,7 @@ import android.view.MenuItem;
 
 import br.com.nobody.statistikz.R;
 import br.com.nobody.statistikz.app.App;
-import br.com.nobody.statistikz.fragment.AddDespesaFragment;
+import br.com.nobody.statistikz.fragment.DespesaFragment;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -23,19 +23,16 @@ public class MainActivity extends ActionBarActivity {
 //        despesa.setDescricao("testeMarcos");
 //        despesa.setValor(new BigDecimal("70.57"));
 //        despesa.saveEventually();
-
-
-
         Log.i(App.LOG_STATISTIKZ, "enviou para o parse.com!");
 
         setContentView(R.layout.activity_main);
-        AddDespesaFragment frag = AddDespesaFragment.newInstance();
+        DespesaFragment frag = DespesaFragment.newInstance();
 
         FragmentManager fm = getSupportFragmentManager();
 
         FragmentTransaction ft = fm.beginTransaction();
 
-        ft.replace(R.id.fragmentContent, frag, AddDespesaFragment.TAG_ADD_DESPESA);
+        ft.replace(R.id.fragmentContent, frag, DespesaFragment.TAG_ADD_DESPESA);
         ft.commit();
     }
 

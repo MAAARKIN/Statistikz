@@ -3,13 +3,14 @@ package br.com.nobody.statistikz.model;
 import com.parse.ParseClassName;
 import com.parse.ParseObject;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
  * Created by Marquinhos.
  */
 @ParseClassName("Despesa")
-public class Despesa extends ParseObject {
+public class Despesa extends ParseObject implements Serializable {
 
     private BigDecimal valor;
 

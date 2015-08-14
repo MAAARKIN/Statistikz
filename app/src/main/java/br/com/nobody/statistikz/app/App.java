@@ -25,10 +25,5 @@ public class App extends Application {
         Parse.enableLocalDatastore(this);
         Parse.initialize(this, getString(R.string.applicationId), getString(R.string.clientKey));
         Log.i(LOG_STATISTIKZ, "Teste de log Statistikz");
-        Log.i(LOG_STATISTIKZ, getString(R.string.applicationId));
-        Log.i(LOG_STATISTIKZ, getString(R.string.clientKey));
-//        ParseObject testObject = new ParseObject("TestObject");
-//        testObject.put("foo", "bar");
-//        testObject.saveInBackground();
     }
 }
