@@ -1325,10 +1325,11 @@ containing a value of this type.
         public static final int action_mode_bar=0x7f0c002e;
         public static final int action_mode_bar_stub=0x7f0c002d;
         public static final int action_mode_close_button=0x7f0c0020;
-        public static final int action_settings=0x7f0c0042;
+        public static final int action_settings=0x7f0c0043;
         public static final int activity_chooser_view_content=0x7f0c0021;
         public static final int always=0x7f0c0016;
         public static final int beginning=0x7f0c0013;
+        public static final int btnActionDespesa=0x7f0c0042;
         public static final int checkbox=0x7f0c0029;
         public static final int collapseActionView=0x7f0c0017;
         public static final int decor_content_parent=0x7f0c002f;
@@ -1409,7 +1410,7 @@ containing a value of this type.
         public static final int abc_search_view=0x7f040014;
         public static final int abc_simple_dropdown_hint=0x7f040015;
         public static final int activity_main=0x7f040016;
-        public static final int fragment_despesa =0x7f040017;
+        public static final int fragment_despesa=0x7f040017;
         public static final int support_simple_spinner_dropdown_item=0x7f040018;
     }
     public static final class menu {
@@ -1437,10 +1438,12 @@ containing a value of this type.
         public static final int abc_toolbar_collapse_description=0x7f06000f;
         public static final int action_settings=0x7f060012;
         public static final int app_name=0x7f060013;
-        public static final int hello_blank_fragment=0x7f060014;
-        public static final int hello_world=0x7f060015;
-        public static final int novaDespesa=0x7f060016;
-        public static final int txtDescricao=0x7f060017;
+        public static final int applicationId=0x7f060014;
+        public static final int clientKey=0x7f060015;
+        public static final int hello_blank_fragment=0x7f060016;
+        public static final int hello_world=0x7f060017;
+        public static final int novaDespesa=0x7f060018;
+        public static final int txtDescricao=0x7f060019;
         public static final int txtSalvar=0x7f060010;
         public static final int txtValor=0x7f060011;
     }

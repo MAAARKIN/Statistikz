@@ -119,7 +119,10 @@ public class DespesaFragment extends Fragment {
             mDespesa = new Despesa(); //provavelmente a instancia estará nula
             mDespesa.setValor(new BigDecimal(edtValor.getText().toString()));
             mDespesa.setDescricao(edtDescricao.getText().toString());
+            //validar campos/informações
             Log.i(App.LOG_STATISTIKZ, "Salvando a nova Despesa: "+mDespesa.getDescricao()+" e "+mDespesa.getValor());
+            //após salvar, enviar para tela de estatisticas/controle financeiro
+
         }
 
     }
@@ -130,7 +133,9 @@ public class DespesaFragment extends Fragment {
             //instancia não deve estar nula no momento da edição
             mDespesa.setValor(new BigDecimal(edtValor.getText().toString()));
             mDespesa.setDescricao(edtDescricao.getText().toString());
+            //validar campos/informações
             Log.i(App.LOG_STATISTIKZ, "Editando a Despesa: "+mDespesa.getDescricao()+" e "+mDespesa.getValor());
+            //após salvar, enviar para tela de estatisticas/controle financeiro
         }
 
     }

@@ -26,7 +26,7 @@ public class MainActivity extends ActionBarActivity {
         Log.i(App.LOG_STATISTIKZ, "enviou para o parse.com!");
 
         setContentView(R.layout.activity_main);
-        DespesaFragment frag = DespesaFragment.newInstance();
+        DespesaFragment frag = DespesaFragment.newInstance(null);
 
         FragmentManager fm = getSupportFragmentManager();
 
