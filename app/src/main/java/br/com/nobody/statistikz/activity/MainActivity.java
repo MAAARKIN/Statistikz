@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,7 +14,7 @@ import br.com.nobody.statistikz.app.App;
 import br.com.nobody.statistikz.fragment.DespesaFragment;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,16 +25,18 @@ public class MainActivity extends ActionBarActivity {
 //        despesa.setValor(new BigDecimal("70.57"));
 //        despesa.saveEventually();
         Log.i(App.LOG_STATISTIKZ, "enviou para o parse.com!");
+        Log.i(App.LOG_STATISTIKZ, "enviou para o parse.com!2");
 
         setContentView(R.layout.activity_main);
-        DespesaFragment frag = DespesaFragment.newInstance(null);
-
-        FragmentManager fm = getSupportFragmentManager();
-
-        FragmentTransaction ft = fm.beginTransaction();
-
-        ft.replace(R.id.fragmentContent, frag, DespesaFragment.TAG_ADD_DESPESA);
-        ft.commit();
+        setTitle("Principal");
+//        DespesaFragment frag = DespesaFragment.newInstance(null);
+//
+//        FragmentManager fm = getSupportFragmentManager();
+//
+//        FragmentTransaction ft = fm.beginTransaction();
+//
+////        ft.replace(R.id.fragmentContent, frag, DespesaFragment.TAG_ADD_DESPESA);
+//        ft.commit();
     }
 
     @Override

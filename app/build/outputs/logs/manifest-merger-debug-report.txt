@@ -15,8 +15,9 @@ ADDED from /Users/Marquinhos/Workspace/AndroidWorkspace/Statistikz/app/src/main/
 		INJECTED from /Users/Marquinhos/Workspace/AndroidWorkspace/Statistikz/app/src/main/AndroidManifest.xml
 application
 ADDED from /Users/Marquinhos/Workspace/AndroidWorkspace/Statistikz/app/src/main/AndroidManifest.xml:5:5-20:19
-MERGED from [com.android.support:appcompat-v7:22.0.0] /Users/Marquinhos/Workspace/AndroidWorkspace/Statistikz/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/AndroidManifest.xml:22:5-20
-MERGED from [com.android.support:support-v4:22.0.0] /Users/Marquinhos/Workspace/AndroidWorkspace/Statistikz/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:appcompat-v7:22.2.1] /Users/Marquinhos/Workspace/AndroidWorkspace/Statistikz/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-v4:22.2.1] /Users/Marquinhos/Workspace/AndroidWorkspace/Statistikz/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.1/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:cardview-v7:22.0.0] /Users/Marquinhos/Workspace/AndroidWorkspace/Statistikz/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/22.0.0/AndroidManifest.xml:22:5-20
 	android:label
 		ADDED from /Users/Marquinhos/Workspace/AndroidWorkspace/Statistikz/app/src/main/AndroidManifest.xml:9:9-41
 	android:allowBackup
@@ -53,8 +54,9 @@ ADDED from /Users/Marquinhos/Workspace/AndroidWorkspace/Statistikz/app/src/main/
 		ADDED from /Users/Marquinhos/Workspace/AndroidWorkspace/Statistikz/app/src/main/AndroidManifest.xml:23:22-76
 uses-sdk
 INJECTED from /Users/Marquinhos/Workspace/AndroidWorkspace/Statistikz/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
-MERGED from [com.android.support:appcompat-v7:22.0.0] /Users/Marquinhos/Workspace/AndroidWorkspace/Statistikz/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:support-v4:22.0.0] /Users/Marquinhos/Workspace/AndroidWorkspace/Statistikz/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:appcompat-v7:22.2.1] /Users/Marquinhos/Workspace/AndroidWorkspace/Statistikz/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-v4:22.2.1] /Users/Marquinhos/Workspace/AndroidWorkspace/Statistikz/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.1/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:cardview-v7:22.0.0] /Users/Marquinhos/Workspace/AndroidWorkspace/Statistikz/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/22.0.0/AndroidManifest.xml:20:5-43
 	android:targetSdkVersion
 		INJECTED from /Users/Marquinhos/Workspace/AndroidWorkspace/Statistikz/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/Marquinhos/Workspace/AndroidWorkspace/Statistikz/app/src/main/AndroidManifest.xml

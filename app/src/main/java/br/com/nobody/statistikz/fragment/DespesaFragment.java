@@ -1,6 +1,7 @@
 package br.com.nobody.statistikz.fragment;
 
 import android.app.Activity;
+import android.app.DatePickerDialog;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,26 +11,33 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 import java.math.BigDecimal;
 
 import br.com.nobody.statistikz.R;
 import br.com.nobody.statistikz.app.App;
 import br.com.nobody.statistikz.model.Despesa;
+import br.com.nobody.statistikz.util.DateUtils;
 import br.com.nobody.statistikz.util.Extra;
 
 /**
  * Será responsável pelo fragmento que terá a possibilidade de cadastrar/editar uma nova despesa
  */
-public class DespesaFragment extends Fragment {
+public class DespesaFragment extends Fragment implements DatePickerDialog.OnDateSetListener {
 
     public static final String TAG_ADD_DESPESA = "tagAddDespesa";
 
     private EditText edtValor;
     private EditText edtDescricao;
+    private EditText edtDataCadastro;
     private Button btnActionDespesa;
+    private Spinner spnCategoria;
+    private Spinner spnConta;
     private Despesa mDespesa;
 
 //    private OnFragmentInteractionListener mListener;
@@ -75,11 +83,21 @@ public class DespesaFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        edtValor = (EditText) getView().findViewById(R.id.edtValor);
-        edtDescricao = (EditText) getView().findViewById(R.id.edtDescricao);
-        btnActionDespesa = (Button) getView().findViewById(R.id.btnActionDespesa);
+        initViews();
+        initListeners();
 
-        if(mDespesa != null) {
+    }
+
+    private void initListeners() {
+        edtDataCadastro.setText(DateUtils.DateNowFormat());
+        edtDataCadastro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDateDialog(v);
+            }
+        });
+
+        if (mDespesa != null) {
             //provavelmente um processo de edição de despesa.
             //preencher os EditText's com os campos de despesa
             btnActionDespesa.setOnClickListener(new EditDespesa());
@@ -87,6 +105,40 @@ public class DespesaFragment extends Fragment {
             btnActionDespesa.setOnClickListener(new AddDespesa());
         }
 
+        //Spinner das Categorias
+        ArrayAdapter<CharSequence> adapterSpnCategoria = ArrayAdapter.createFromResource(getActivity(), R.array.planets_array, android.R.layout.simple_spinner_dropdown_item);
+        adapterSpnCategoria.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spnCategoria.setAdapter(adapterSpnCategoria);
+
+        ArrayAdapter<CharSequence> adapterSpnConta = ArrayAdapter.createFromResource(getActivity(), R.array.contas_array, android.R.layout.simple_spinner_dropdown_item);
+        adapterSpnConta.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spnConta.setAdapter(adapterSpnConta);
+    }
+
+    private void initViews() {
+        edtValor = (EditText) getView().findViewById(R.id.edtValor);
+        edtDescricao = (EditText) getView().findViewById(R.id.edtDescricao);
+        edtDataCadastro = (EditText) getView().findViewById(R.id.edtDataCadastro);
+        btnActionDespesa = (Button) getView().findViewById(R.id.btnActionDespesa);
+        spnCategoria = (Spinner) getView().findViewById(R.id.spnCategoria);
+        spnConta = (Spinner) getView().findViewById(R.id.spnConta);
+    }
+
+    private void showDateDialog(View v) {
+        DatePickerFragment newFragment = new DatePickerFragment();
+        Bundle params = new Bundle();
+        params.putString(Extra.DATA, edtDataCadastro.getText().toString());
+        newFragment.setArguments(params);
+        newFragment.setOnDateSetListener(this);
+        newFragment.show(getFragmentManager(), "datePicker");
+    }
+
+    @Override
+    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+        if (view.isShown()) {
+            Log.i(App.LOG_STATISTIKZ, "Year: " + year + " month " + monthOfYear + " day " + dayOfMonth);
+            edtDataCadastro.setText(DateUtils.DateFormat(year, monthOfYear, dayOfMonth));
+        }
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -120,7 +172,7 @@ public class DespesaFragment extends Fragment {
             mDespesa.setValor(new BigDecimal(edtValor.getText().toString()));
             mDespesa.setDescricao(edtDescricao.getText().toString());
             //validar campos/informações
-            Log.i(App.LOG_STATISTIKZ, "Salvando a nova Despesa: "+mDespesa.getDescricao()+" e "+mDespesa.getValor());
+            Log.i(App.LOG_STATISTIKZ, "Salvando a nova Despesa: " + mDespesa.getDescricao() + " e " + mDespesa.getValor());
             //após salvar, enviar para tela de estatisticas/controle financeiro
 
         }
@@ -134,7 +186,7 @@ public class DespesaFragment extends Fragment {
             mDespesa.setValor(new BigDecimal(edtValor.getText().toString()));
             mDespesa.setDescricao(edtDescricao.getText().toString());
             //validar campos/informações
-            Log.i(App.LOG_STATISTIKZ, "Editando a Despesa: "+mDespesa.getDescricao()+" e "+mDespesa.getValor());
+            Log.i(App.LOG_STATISTIKZ, "Editando a Despesa: " + mDespesa.getDescricao() + " e " + mDespesa.getValor());
             //após salvar, enviar para tela de estatisticas/controle financeiro
         }
 

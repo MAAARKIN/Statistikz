@@ -5,4 +5,5 @@ package br.com.nobody.statistikz.util;
  */
 public class Extra {
     public static final String DESPESA = "despesa";
+    public static final String DATA = "data";
 }
