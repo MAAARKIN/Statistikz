@@ -9,6 +9,8 @@
     <string name="txtValor">Valor</string>
     <string name="txtDescricao">Descrição</string>
     <string name="novaDespesa">Nova Despesa</string>
+    <string name="despesas">Despesas</string>
+    <string name="receitas">Receitas</string>
     <string name="txtSalvar">Salvar</string>
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur magna tortor, semper eu feugiat eu, vehicula vitae lacus.</string>
     <string name="recyclerview_fab_example">RecyclerView FAB example</string>

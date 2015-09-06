@@ -14,12 +14,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/info_text3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/txtDescricao"/>
-
         <android.support.v7.widget.CardView
             android:id="@+id/card_view"
             android:layout_gravity="center"
@@ -41,7 +35,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
-                    android:text="@string/txtValor"/>
+                    android:text="@string/receitas"/>
+
+                <!--used to represent same effect <hr/> from html-->
+                <View style="@style/Divider"/>
 
                 <TextView
                     android:id="@+id/info_text4"
@@ -53,12 +50,43 @@
 
         </android.support.v7.widget.CardView>
 
-        <TextView
-            android:id="@+id/info_text20"
+        <android.support.v7.widget.CardView
+            android:id="@+id/card_view2"
+            android:layout_gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/txtDescricao"/>
+            android:minHeight="100dp">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_vertical_margin"
+                android:paddingBottom="@dimen/activity_vertical_margin">
+
+                <TextView
+                    android:id="@+id/info_textDuplicated"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:text="@string/despesas"/>
+
+                <!--used to represent same effect <hr/> from html-->
+                <View style="@style/Divider"/>
+
+                <TextView
+                    android:id="@+id/info_textDuplicated4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txtDescricao"/>
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <!--Used to fix button on bottom/right-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -66,15 +94,15 @@
             android:gravity="bottom">
 
             <com.github.clans.fab.FloatingActionMenu
-                android:id="@+id/menu2"
-                android:layout_width="wrap_content"
+                android:id="@+id/menu"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 fab:menu_labels_style="@style/MenuLabelsStyle"
                 fab:menu_animationDelayPerItem="0"
-                fab:menu_colorNormal="#FFB805"
-                fab:menu_colorPressed="#F2AB00"
-                fab:menu_colorRipple="#D99200">
+                fab:menu_colorNormal="#33CCCC"
+                fab:menu_colorPressed="#33CCCC"
+                fab:menu_colorRipple="#33CCCC">
 
                 <com.github.clans.fab.FloatingActionButton
                     android:id="@+id/fab12"
@@ -96,8 +124,9 @@
                     android:id="@+id/fab32"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_edit"
-                    fab:fab_label="@string/lorem_ipsum"
+                    android:src="@mipmap/ic_credit_card_black_24dp"
+                    fab:fab_label="@string/novaDespesa"
+                    fab:fab_colorNormal="#CCCCCC"
                     style="@style/MenuButtonsStyle" />
 
             </com.github.clans.fab.FloatingActionMenu>
