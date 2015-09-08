@@ -168,15 +168,39 @@ public class DespesaFragment extends Fragment implements DatePickerDialog.OnDate
     private class AddDespesa implements View.OnClickListener {
         @Override
         public void onClick(View v) {
-            mDespesa = new Despesa(); //provavelmente a instancia estará nula
-            mDespesa.setValor(new BigDecimal(edtValor.getText().toString()));
-            mDespesa.setDescricao(edtDescricao.getText().toString());
             //validar campos/informações
-            Log.i(App.LOG_STATISTIKZ, "Salvando a nova Despesa: " + mDespesa.getDescricao() + " e " + mDespesa.getValor());
+            if(validateFields()) {
+                mDespesa = new Despesa(); //provavelmente a instancia estará nula
+                mDespesa.setValor(new BigDecimal(edtValor.getText().toString()));
+                mDespesa.setDescricao(edtDescricao.getText().toString());
+                mDespesa.setDataCadastro(DateUtils.StringToDate(edtDataCadastro.getText().toString(), "dd/MM/yyyy"));
+                Log.i(App.LOG_STATISTIKZ, "Salvando a nova Despesa: " + mDespesa.getDescricao() + " e " + mDespesa.getValor() + " e " + mDespesa.getDataCadastro().toString());
+                mDespesa.saveEventually();
+                getActivity().finish();
+            }
             //após salvar, enviar para tela de estatisticas/controle financeiro
 
         }
 
+    }
+
+    private boolean validateFields() {
+        boolean validate = true;
+        if (edtValor.getText().toString() == null || edtValor.getText().toString().isEmpty()) {
+            edtValor.setError("Valor em branco");
+            validate = false;
+        }
+
+        if (edtDescricao.getText().toString() == null || edtDescricao.getText().toString().isEmpty()) {
+            edtDescricao.setError("Descrição em branco");
+            validate = false;
+        }
+
+        if (edtDataCadastro.getText().toString() == null || edtDataCadastro.getText().toString().isEmpty()) {
+            edtDataCadastro.setError("Data em branco");
+            validate = false;
+        }
+        return validate;
     }
 
     private class EditDespesa implements View.OnClickListener {

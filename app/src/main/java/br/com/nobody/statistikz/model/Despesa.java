@@ -5,14 +5,13 @@ import com.parse.ParseObject;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Date;
 
 /**
  * Created by Marquinhos.
  */
 @ParseClassName("Despesa")
 public class Despesa extends ParseObject implements Serializable {
-
-    private BigDecimal valor;
 
     public Despesa() {
 
@@ -32,5 +31,18 @@ public class Despesa extends ParseObject implements Serializable {
 
     public void setValor(BigDecimal valor) {
         this.put("valor", valor.doubleValue());
+    }
+
+    public void setDataCadastro(Date dataCadastro) {
+        this.put("dataCadastro", dataCadastro);
+    }
+
+    public Date getDataCadastro() {
+        return getDate("dataCadastro");
+    }
+
+    @Override
+    public String toString() {
+        return getDescricao();
     }
 }

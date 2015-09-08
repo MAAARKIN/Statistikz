@@ -2,4 +2,5 @@
 <resources>
     <string name="txtValor">Valor</string>
     <string name="txtSalvar">Salvar</string>
+    <string name="novaReceita">Nova Receita</string>
 </resources>

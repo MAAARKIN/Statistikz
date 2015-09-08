@@ -1,37 +1,32 @@
 package br.com.nobody.statistikz.activity;
 
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import br.com.nobody.statistikz.R;
-import br.com.nobody.statistikz.app.App;
+import br.com.nobody.statistikz.fragment.DashboardFragment;
+import br.com.nobody.statistikz.fragment.DespesaFragment;
 
 
-public class MainActivity extends AppCompatActivity {
+public class DashboardActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        Despesa despesa = new Despesa();
-//        despesa.setDescricao("testeMarcos");
-//        despesa.setValor(new BigDecimal("70.57"));
-//        despesa.saveEventually();
-        Log.i(App.LOG_STATISTIKZ, "enviou para o parse.com!");
-        Log.i(App.LOG_STATISTIKZ, "enviou para o parse.com!2");
+        setContentView(R.layout.activity_dashboard);
+        initFragments();
+    }
 
-        setContentView(R.layout.activity_main);
-        setTitle("Principal");
-//        DespesaFragment frag = DespesaFragment.newInstance(null);
-//
-//        FragmentManager fm = getSupportFragmentManager();
-//
-//        FragmentTransaction ft = fm.beginTransaction();
-//
-////        ft.replace(R.id.fragmentContent, frag, DespesaFragment.TAG_ADD_DESPESA);
-//        ft.commit();
+    private void initFragments() {
+        DashboardFragment frag = DashboardFragment.newInstance();
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.replace(R.id.fragmentDashboardContent, frag, DashboardFragment.TAG_PRINCIPAL_DASHBOARD);
+        ft.commit();
     }
 
     @Override

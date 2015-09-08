@@ -54,7 +54,7 @@
         <item name="android:background">#CCCCCC</item>
     </style>
 
-    <style name="CardViewStyle" parent="android:Widget.TextView">
+    <style name="CardViewStyle" parent="CardView.Light">
         <item name="android:foreground">?android:attr/selectableItemBackground</item>
     </style>
 

@@ -9,6 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/edtValor"
+        android:inputType="numberDecimal"
+        android:imeOptions="actionNext"
         android:hint="@string/txtValor"
         android:layout_marginBottom="10dp"/>
 

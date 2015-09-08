@@ -1,15 +1,18 @@
 package br.com.nobody.statistikz.repository;
 
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+
 import java.util.List;
 
 /**
  * Created by Marquinhos.
  */
-public interface Repository<T> {
-    public void create(T entity);
+public interface Repository<T extends ParseObject> {
+    public void save(T entity);
     public void update(T entity);
     public void delete(T entity);
-    public T findById(int id);
+    public T findById(String objectId);
     public List<T> listAll();
-    public void closeDatabase();
+    public ParseQuery<T> getQuery();
 }
