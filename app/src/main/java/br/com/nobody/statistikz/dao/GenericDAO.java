@@ -11,6 +11,8 @@ import br.com.nobody.statistikz.repository.Repository;
 
 /**
  * Created by Marquinhos on 07/09/15.
+ *
+ * Responsável por fornecer uma api de CRUD mais abstrata para o usuário
  */
 public abstract class GenericDAO<T extends ParseObject> implements Repository<T> {
 
