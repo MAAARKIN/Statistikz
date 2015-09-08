@@ -61,7 +61,26 @@ public class DashboardFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         getActivity().setTitle("Principal");
         initViews();
+//        showQuery();
     }
+
+//    private void showQuery() {
+//        ParseQuery<Despesa> query = ParseQuery.getQuery(Despesa.class);
+//        query.findInBackground(new FindCallback<Despesa>() {
+//            @Override
+//            public void done(List<Despesa> results, ParseException e) {
+//                if(e == null) {
+//                    for (Despesa a : results) {
+//                        Log.i(App.LOG_STATISTIKZ, a.getDescricao());
+//                        a.setValor(new BigDecimal("90"));
+//                        repository.update(a);
+//                    }
+//                } else {
+//                    Log.e(App.LOG_STATISTIKZ, e.getMessage());
+//                }
+//            }
+//        });
+//    }
 
     private void initViews() {
         btnNovaDespesa = (FloatingActionButton) getView().findViewById(R.id.btnNovaDespesa);
