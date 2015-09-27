@@ -41,6 +41,14 @@ public class Despesa extends ParseObject implements Serializable {
         return getDate("dataCadastro");
     }
 
+    public void setCategoria(Categoria categoria) {
+        put("categoria", categoria);
+    }
+
+    public Categoria getCategoria() {
+        return (Categoria) get("categoria");
+    }
+
     @Override
     public String toString() {
         return getDescricao();

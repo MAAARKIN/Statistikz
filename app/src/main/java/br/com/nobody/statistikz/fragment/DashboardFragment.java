@@ -2,31 +2,24 @@ package br.com.nobody.statistikz.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.CardView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.github.clans.fab.FloatingActionButton;
 import com.github.clans.fab.FloatingActionMenu;
-import com.parse.FindCallback;
-import com.parse.ParseException;
-import com.parse.ParseQuery;
-
-import java.math.BigDecimal;
-import java.util.List;
 
 import br.com.nobody.statistikz.R;
 import br.com.nobody.statistikz.activity.DespesaActivity;
-import br.com.nobody.statistikz.app.App;
 import br.com.nobody.statistikz.dao.DespesaDAO;
-import br.com.nobody.statistikz.model.Despesa;
 import br.com.nobody.statistikz.repository.DespesaRepository;
 import br.com.nobody.statistikz.util.Extra;
+import br.com.nobody.statistikz.util.Option;
 
 /**
  * Created by Marquinhos on 07/09/15.
@@ -38,9 +31,11 @@ public class DashboardFragment extends Fragment {
     public static final String TAG_PRINCIPAL_DASHBOARD = "tagPrincipalDashboard";
 
     private FloatingActionButton btnNovaDespesa;
+    private FloatingActionButton btnNovaCategoria;
     private FloatingActionButton btnNovaReceita;
     private FloatingActionMenu menu;
-    private CardView cardViewDespesas;
+    private LinearLayout viewDespesas;
+    private LinearLayout viewReceitas;
 
     public static DashboardFragment newInstance() {
         DashboardFragment fragment = new DashboardFragment();
@@ -85,10 +80,14 @@ public class DashboardFragment extends Fragment {
     private void initViews() {
         btnNovaDespesa = (FloatingActionButton) getView().findViewById(R.id.btnNovaDespesa);
         btnNovaReceita = (FloatingActionButton) getView().findViewById(R.id.btnNovaReceita);
+        btnNovaCategoria = (FloatingActionButton) getView().findViewById(R.id.btnNovaCategoria);
         menu = (FloatingActionMenu) getView().findViewById(R.id.menu);
         btnNovaDespesa.setOnClickListener(clickListener);
-        cardViewDespesas = (CardView) getView().findViewById(R.id.cardDespesas);
-        cardViewDespesas.setOnClickListener(clickListener);
+        btnNovaCategoria.setOnClickListener(clickListener);
+        viewDespesas = (LinearLayout) getView().findViewById(R.id.cardDespesas);
+        viewReceitas = (LinearLayout) getView().findViewById(R.id.cardReceitas);
+        viewDespesas.setOnClickListener(clickListener);
+        viewReceitas.setOnClickListener(clickListener);
     }
 
     private View.OnClickListener clickListener = new View.OnClickListener() {
@@ -103,12 +102,22 @@ public class DashboardFragment extends Fragment {
                     it.putExtra(Extra.OPTION_FRAGMENT, DespesaFragment.TAG_ADD_DESPESA);
                     startActivity(it);
                     break;
+                case R.id.btnNovaCategoria:
+                    menu.close(false);
+                    FragmentManager fm = getFragmentManager();
+                    CategoriaFragment fragment = CategoriaFragment.newInstance(null, Option.NEW);
+                    fragment.show(fm, CategoriaFragment.TAG_CATEGORIA_MANAGER);
+                    break;
                 case R.id.cardDespesas:
-                    Toast.makeText(getActivity(), "Button pressed Cardview" , Toast.LENGTH_SHORT).show();
+                    menu.close(false);
+                    it = new Intent(getActivity(), DespesaActivity.class);
+                    it.putExtra(Extra.OPTION_FRAGMENT, DespesaListFragment.TAG_LIST_DESPESA);
+                    startActivity(it);
+                    break;
+                case R.id.cardReceitas:
+                    Toast.makeText(getActivity(), "Button pressed LinearView" , Toast.LENGTH_SHORT).show();
                     break;
             }
-
-//            Toast.makeText(DashboardActivity.this, "Button pressed "+txtBtnPressed, Toast.LENGTH_SHORT).show();
         }
     };
 }

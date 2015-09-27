@@ -9,6 +9,7 @@ import android.view.MenuItem;
 
 import br.com.nobody.statistikz.R;
 import br.com.nobody.statistikz.fragment.DespesaFragment;
+import br.com.nobody.statistikz.fragment.DespesaListFragment;
 import br.com.nobody.statistikz.util.Extra;
 
 public class DespesaActivity extends AppCompatActivity {
@@ -22,14 +23,20 @@ public class DespesaActivity extends AppCompatActivity {
     }
 
     private void initFragment() {
+        FragmentManager fm = getSupportFragmentManager();
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             String optionFragment = extras.getString(Extra.OPTION_FRAGMENT);
             if (optionFragment.equals(DespesaFragment.TAG_ADD_DESPESA)) {
                 DespesaFragment frag = DespesaFragment.newInstance(null);
-                FragmentManager fm = getSupportFragmentManager();
                 FragmentTransaction ft = fm.beginTransaction();
                 ft.replace(R.id.fragmentDespesaContent, frag, DespesaFragment.TAG_ADD_DESPESA);
+                ft.commit();
+            }
+            if (optionFragment.equals(DespesaListFragment.TAG_LIST_DESPESA)) {
+                DespesaListFragment frag = DespesaListFragment.newInstance();
+                FragmentTransaction ft = fm.beginTransaction();
+                ft.replace(R.id.fragmentDespesaContent, frag, DespesaListFragment.TAG_LIST_DESPESA);
                 ft.commit();
             }
         }

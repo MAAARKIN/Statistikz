@@ -20,8 +20,14 @@ import android.widget.Spinner;
 import java.math.BigDecimal;
 
 import br.com.nobody.statistikz.R;
+import br.com.nobody.statistikz.adapter.CategoriaAdapter;
 import br.com.nobody.statistikz.app.App;
+import br.com.nobody.statistikz.dao.CategoriaDAO;
+import br.com.nobody.statistikz.dao.DespesaDAO;
+import br.com.nobody.statistikz.model.Categoria;
 import br.com.nobody.statistikz.model.Despesa;
+import br.com.nobody.statistikz.repository.CategoriaRepository;
+import br.com.nobody.statistikz.repository.DespesaRepository;
 import br.com.nobody.statistikz.util.DateUtils;
 import br.com.nobody.statistikz.util.Extra;
 
@@ -39,8 +45,8 @@ public class DespesaFragment extends Fragment implements DatePickerDialog.OnDate
     private Spinner spnCategoria;
     private Spinner spnConta;
     private Despesa mDespesa;
-
-//    private OnFragmentInteractionListener mListener;
+    private CategoriaRepository catRepository;
+    private DespesaRepository despesaRepository;
 
     // TODO: Rename and change types and number of parameters
     public static DespesaFragment newInstance(Despesa despesa) {
@@ -66,6 +72,8 @@ public class DespesaFragment extends Fragment implements DatePickerDialog.OnDate
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        catRepository = new CategoriaDAO();
+        despesaRepository = new DespesaDAO();
         if (getArguments() != null) {
             mDespesa = (Despesa) getArguments().getSerializable(Extra.DESPESA);
 //            mParam1 = getArguments().getString(ARG_PARAM1);
@@ -106,9 +114,14 @@ public class DespesaFragment extends Fragment implements DatePickerDialog.OnDate
         }
 
         //Spinner das Categorias
-        ArrayAdapter<CharSequence> adapterSpnCategoria = ArrayAdapter.createFromResource(getActivity(), R.array.planets_array, android.R.layout.simple_spinner_dropdown_item);
-        adapterSpnCategoria.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spnCategoria.setAdapter(adapterSpnCategoria);
+//        ArrayAdapter<CharSequence> adapterSpnCategoria = ArrayAdapter.createFromResource(getActivity(), R.array.planets_array, android.R.layout.simple_spinner_dropdown_item);
+//        adapterSpnCategoria.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        CategoriaAdapter adapterSpnCat = new CategoriaAdapter(getActivity(), catRepository.listAll());
+
+        spnCategoria.setAdapter(adapterSpnCat);
+
+
 
         ArrayAdapter<CharSequence> adapterSpnConta = ArrayAdapter.createFromResource(getActivity(), R.array.contas_array, android.R.layout.simple_spinner_dropdown_item);
         adapterSpnConta.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -174,8 +187,9 @@ public class DespesaFragment extends Fragment implements DatePickerDialog.OnDate
                 mDespesa.setValor(new BigDecimal(edtValor.getText().toString()));
                 mDespesa.setDescricao(edtDescricao.getText().toString());
                 mDespesa.setDataCadastro(DateUtils.StringToDate(edtDataCadastro.getText().toString(), "dd/MM/yyyy"));
-                Log.i(App.LOG_STATISTIKZ, "Salvando a nova Despesa: " + mDespesa.getDescricao() + " e " + mDespesa.getValor() + " e " + mDespesa.getDataCadastro().toString());
-                mDespesa.saveEventually();
+                Categoria objectSpnCategoria = (Categoria) spnCategoria.getSelectedItem();
+                mDespesa.setCategoria(objectSpnCategoria);
+                despesaRepository.save(mDespesa);
                 getActivity().finish();
             }
             //após salvar, enviar para tela de estatisticas/controle financeiro

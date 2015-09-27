@@ -4,16 +4,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    tools:context=".MainActivity">
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity"
+    android:minHeight="100dp"
+    android:minWidth="100dp"
+    android:background="#ececec">
 
     <LinearLayout android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <android.support.v7.widget.CardView
+        <LinearLayout
+            android:orientation="vertical"
             android:id="@+id/cardReceitas"
             android:clickable="true"
-            android:foreground="?android:attr/selectableItemBackground"
+            android:background="@drawable/card_view_item"
             android:layout_gravity="center"
             android:layout_marginBottom="5dp"
             android:layout_width="match_parent"
@@ -47,12 +55,13 @@
 
             </LinearLayout>
 
-        </android.support.v7.widget.CardView>
+        </LinearLayout>
 
-        <android.support.v7.widget.CardView
+        <LinearLayout
+            android:orientation="vertical"
             android:id="@+id/cardDespesas"
             android:clickable="true"
-            android:foreground="?android:attr/selectableItemBackground"
+            android:background="@drawable/card_view_item"
             android:layout_gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -85,7 +94,7 @@
 
             </LinearLayout>
 
-        </android.support.v7.widget.CardView>
+        </LinearLayout>
 
         <!--Used to fix button on bottom/right-->
         <LinearLayout
@@ -104,6 +113,17 @@
                 fab:menu_colorNormal="#33CCCC"
                 fab:menu_colorPressed="#33CCCC"
                 fab:menu_colorRipple="#33CCCC">
+
+                <com.github.clans.fab.FloatingActionButton
+                    android:id="@+id/btnNovaCategoria"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ic_file_upload_white_24dp"
+                    fab:fab_label="@string/novaCategoria"
+                    fab:fab_colorNormal="#336699"
+                    fab:fab_colorPressed="#336699"
+                    fab:fab_colorRipple="#336699"
+                    style="@style/MenuButtonsStyle" />
 
                 <com.github.clans.fab.FloatingActionButton
                     android:id="@+id/btnNovaReceita"
